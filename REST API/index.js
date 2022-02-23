@@ -15,11 +15,17 @@ const server = http.createServer(function(req, res){
     const path = parsedUrl.path;
     const trimmedPath = path.replace(/^\/+|\/+$/g, '');
 
+    // Get the method
+    const method = req.method.toLowerCase()
+
+    // Get the queryStringObject
+    const queryStringObject = parsedUrl.query
+
     // send the response
     res.end("Hello this is the starting point\n");
 
     // log the path
-    console.log("reuqsted path: " + trimmedPath);
+    console.log("reuqsted path: " + trimmedPath + " with method: " + method + " and with  query strings: ",queryStringObject);
 });
 
 
